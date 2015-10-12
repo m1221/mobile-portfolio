@@ -459,7 +459,7 @@ var resizePizzas = function(size) {
   }
 
   changePizzaSizes(size);
-
+  
   // User Timing API is awesome
   window.performance.mark("mark_end_resize");
   window.performance.measure("measure_pizza_resize", "mark_start_resize", "mark_end_resize");
@@ -504,11 +504,16 @@ function updatePositions() {
   window.performance.mark("mark_start_frame");
 
   var items = document.querySelectorAll('.mover');
+  var phase = []; 
+  
+  // before, these two for-loops were merged into one. Separation of the operations
+  // improved performance.
   for (var i = 0; i < items.length; i++) {
-    var phase = Math.sin((document.body.scrollTop / 1250) + (i % 5));
-    items[i].style.left = items[i].basicLeft + 100 * phase + 'px';
-    //items[i].style.transform = "translateX("+items[i].basicLeft + 100 * phase + "px)";
-    //the above doesn't work :(
+    phase.push(Math.sin((document.body.scrollTop / 1250) + (i % 5)));
+  }
+  
+  for (var i = 0; i < items.length; i++) {//ORIGINAL
+    items[i].style.left = items[i].basicLeft + 100 * phase[i] + 'px';
   }
   
   // User Timing API to the rescue again. Seriously, it's worth learning.
