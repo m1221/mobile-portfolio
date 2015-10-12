@@ -449,6 +449,7 @@ var resizePizzas = function(size) {
   }
 
   // Iterates through pizza elements on the page and changes their widths
+  //OPTIMIZED - REMOVED dx and newwidth calc from for-loop
   var dx = determineDx(document.querySelector(".randomPizzaContainer"), size);
   var newwidth = (document.querySelector(".randomPizzaContainer").offsetWidth + dx) + 'px';
   
@@ -499,6 +500,7 @@ function logAverageFrame(times) {   // times is the array of User Timing measure
 // https://www.igvita.com/slides/2012/devtools-tips-and-tricks/jank-demo.html
 
 // Moves the sliding background pizzas based on scroll position
+//OPTIMIZED
 function updatePositions() {
   frame++;
   window.performance.mark("mark_start_frame");
@@ -530,6 +532,7 @@ function updatePositions() {
 window.addEventListener('scroll', updatePositions);
 
 // Generates the sliding pizzas when the page loads.
+//OPTIMIZED
 document.addEventListener('DOMContentLoaded', function() {
   var cols = 4; // changed cols from 8 to 4
   var s = 256;
