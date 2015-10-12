@@ -434,7 +434,7 @@ var resizePizzas = function(size) {
         case "1":
           return 0.25;
         case "2":
-          return 0.3333;
+          return 0.33;
         case "3":
           return 0.5;
         default:
@@ -449,10 +449,11 @@ var resizePizzas = function(size) {
   }
 
   // Iterates through pizza elements on the page and changes their widths
+  var dx = determineDx(document.querySelector(".randomPizzaContainer"), size);
+  var newwidth = (document.querySelector(".randomPizzaContainer").offsetWidth + dx) + 'px';
+  
   function changePizzaSizes(size) {
     for (var i = 0; i < document.querySelectorAll(".randomPizzaContainer").length; i++) {
-      var dx = determineDx(document.querySelectorAll(".randomPizzaContainer")[i], size);
-      var newwidth = (document.querySelectorAll(".randomPizzaContainer")[i].offsetWidth + dx) + 'px';
       document.querySelectorAll(".randomPizzaContainer")[i].style.width = newwidth;
     }
   }
@@ -506,7 +507,8 @@ function updatePositions() {
   for (var i = 0; i < items.length; i++) {
     var phase = Math.sin((document.body.scrollTop / 1250) + (i % 5));
     items[i].style.left = items[i].basicLeft + 100 * phase + 'px';
-    //items[i].style.transform = translateX(items[i].basicLeft + 100 * phase + 'px');
+    //items[i].style.transform = "translateX("+items[i].basicLeft + 100 * phase + "px)";
+    //the above doesn't work :(
   }
   
   // User Timing API to the rescue again. Seriously, it's worth learning.
@@ -534,7 +536,7 @@ document.addEventListener('DOMContentLoaded', function() {
     elem.style.height = "100px";
     elem.style.width = "73.333px";
     elem.basicLeft = (i % cols) * s;
-    elem.style.top = (Math.floor(i * 1.5 / cols) * s) + 'px'; // added factor of 1.5
+    elem.style.top = (Math.floor(i * 1.5/ cols) * s) + 'px'; // added factor of 1.5
     document.querySelector("#movingPizzas1").appendChild(elem);
   }
   updatePositions();
