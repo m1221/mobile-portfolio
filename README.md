@@ -92,5 +92,6 @@ Feeling uninspired by the portfolio? Here's a list of cool portfolios I found af
 ### Summary of optimizations for main.js
 * For Scrolling: reduced the number of background pizzas generated
 * For Scrolling: separated operations in a for-loop into two different loops in updatePositions()
-* For Pizza Size Bar: moved calculation outside of a for-loop to avoid unnecessary recalculation
+* For Pizza Size Bar: Changed method of element selection from querySelectorAll to getElementsByClassName()
+* For Pizza Size Bar: Moved calculations outside of a for-loop to avoid unnecessary recalculation
 * For style.css: added a style property "backface-visibility: hidden" to the .mover class
