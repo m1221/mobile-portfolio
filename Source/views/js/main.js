@@ -424,7 +424,7 @@ var resizePizzas = function(size) {
   // Returns the size difference to change a pizza element from one size to another. Called by changePizzaSlices(size).
   function determineDx (elem, size) {
     var oldwidth = elem.offsetWidth;
-    var windowwidth = document.querySelector("#randomPizzas").offsetWidth;
+    var windowwidth = document.querySelector("#randomPizzas").offsetWidth; 
     var oldsize = oldwidth / windowwidth;
 
     // TODO: change to 3 sizes? no more xl?
@@ -452,10 +452,12 @@ var resizePizzas = function(size) {
   //OPTIMIZED - REMOVED dx and newwidth calc from for-loop
   var dx = determineDx(document.querySelector(".randomPizzaContainer"), size);
   var newwidth = (document.querySelector(".randomPizzaContainer").offsetWidth + dx) + 'px';
+  var pizzaContainers = document.getElementsByClassName("randomPizzaContainer"); // OPTIMIZATION
+  // Took calc out of loop and changed from querySelectorAll
   
   function changePizzaSizes(size) {
     for (var i = 0; i < document.querySelectorAll(".randomPizzaContainer").length; i++) {
-      document.querySelectorAll(".randomPizzaContainer")[i].style.width = newwidth;
+      pizzaContainers[i].style.width = newwidth;
     }
   }
 
@@ -505,7 +507,7 @@ function updatePositions() {
   frame++;
   window.performance.mark("mark_start_frame");
 
-  var items = document.querySelectorAll('.mover');
+  var items = document.getElementsByClassName('mover'); // OPTIMIZATION - change from querySelectorAll
   var phase = []; 
   
   // before, these two for-loops were merged into one. Separation of the operations
