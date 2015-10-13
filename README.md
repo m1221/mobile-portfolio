@@ -1,4 +1,4 @@
-###SCROLL DOWN TO BOTTOM TO SEE STUDENT EDITS TO README.md
+###SCROLL DOWN TO BOTTOM TO SEE STUDENT EDITS
 ## Website Performance Optimization portfolio project
 
 Your challenge, if you wish to accept it (and we sure hope you will), is to optimize this online portfolio for speed! In particular, optimize the critical rendering path and make this page render as quickly as possible by applying the techniques you've picked up in the [Critical Rendering Path course](https://www.udacity.com/course/ud884).
@@ -74,23 +74,23 @@ Feeling uninspired by the portfolio? Here's a list of cool portfolios I found af
 * <a href="http://www.84colors.com/portfolio.html">http://www.84colors.com/portfolio.html</a>
 
 
-##
-Student Editor: Mario
-Student Email: m.portocarrero.jr@gmail.com
-Github: m1221
+## Editor Information
+* Student Editor: Mario
+* Student Email: m.portocarrero.jr@gmail.com
+* Github: m1221
 
-Summary of optimizations for all files:
--all image files were rescaled and compressed using GIMP and file optimizer
--all HTML, CSS, and JS files were minified
+### Summary of optimizations for all files:
+* all image files were rescaled and compressed using GIMP and file optimizer
+* all HTML, CSS, and JS files were minified
 
-Summary of optimizations for index.html
--style.css was inlined
--added media attribute to print.css
--inline JS was repositioned
--added async tags to JS (it was noncritical)
+### Summary of optimizations for index.html
+* style.css was inlined
+* added media attribute to print.css
+* inline JS was repositioned
+* added async tags to JS (it was noncritical)
 
-Summary of optimizations for main.js
--For Scrolling: reduced the number of background pizzas generated
--For Scrolling: separated operations in a for-loop into two different loops in updatePositions()
--For Pizza Size Bar: moved calculation outside of a for-loop to avoid unnecessary recalculation
--For style.css: added a style property "backface-visibility: hidden" to the .mover class
+### Summary of optimizations for main.js
+* For Scrolling: reduced the number of background pizzas generated
+* For Scrolling: separated operations in a for-loop into two different loops in updatePositions()
+* For Pizza Size Bar: moved calculation outside of a for-loop to avoid unnecessary recalculation
+* For style.css: added a style property "backface-visibility: hidden" to the .mover class
